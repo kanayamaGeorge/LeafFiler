@@ -1,5 +1,6 @@
 # 認証設定
-公開URLのオリジンを Google Cloud Console の OAuth ウェブアプリの承認済み JavaScript 生成元に登録する。Drive API を有効化し、同意画面のテストユーザーに本人を登録する。取得したクライアントIDをアプリの設定に入力する。クライアントシークレットは不要。全ファイル操作のため drive と drive.appdata のスコープを使用する。
+Sites版ではリーフエディタと同様、Google OAuthウェブアプリの認証コード方式を使用する。既存OAuthクライアントにSites公開URLの /auth/google/callback を承認済みリダイレクトURIとして追加し、サイト専用の暗号化保存領域に認証設定を入力する。既存エディタのトークンは共有しない。
+Workerには LEAF_SITE_ORIGIN、LEAF_OWNER_EMAIL、LEAF_SECRET_KEY と専用R2バインディング BUCKET を設定する。
 Microsoft Entra のアプリ登録で個人用 Microsoft アカウントを許可し、SPA のリダイレクトURIに公開URL（末尾 / を含む）を登録する。委任 Files.ReadWrite を設定し、アプリIDを入力する。
 一時ファイルIDは利用者の設定に入力する（公開ソースに私有フォルダIDを含めない）。
 公式資料:
